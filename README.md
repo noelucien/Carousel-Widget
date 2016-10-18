@@ -3,7 +3,7 @@ simple carousel of image create with jQuery . With transitions effects , draggab
 
 HTML STRUCTURE
 create a div with id 'frame' and a child div with id 'slide'
-<div id="frame"><div id="slide"></div></div>
+<html><div id="frame"><div id="slide"></div></div></html>
 
 CSS STYLE
 define the dimension , position and any style of your frame

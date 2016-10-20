@@ -12,12 +12,18 @@ Options:
 * draggable
 * resizable
 
+__________________________________________________________________________________
+
 ###images
 Type: Array
+
 Default: empty
 
-Set the images to display into the carousel
+
+Set the images to display into the carousel.
+
 Code examples:
+
 Initialize the widget:
 ```
 $( ".selector" ).carousel({
@@ -37,12 +43,17 @@ var images = $( ".selector" ).carousel( "option", "images" );
 $( ".selector" ).carousel( "option", "images", array );
 ```
 
+__________________________________________________________________________________
+
 ###effects
 Type: String
+
 Defualt: "fade"
 
 Set the effect used for the transiction of the images into the carousel. The value can be the name of a [jQuery UI effect](http://api.jqueryui.com/category/effects/).
+
 Code examples:
+
 Initialize the widget:
 ```
 $( ".selector" ).carousel({
@@ -58,12 +69,17 @@ var images = $( ".selector" ).carousel( "option", "effects" );
 $( ".selector" ).carousel( "option", "effects", "fade" );
 ```
 
+__________________________________________________________________________________
+
 ###timeShow
 Type: Number
+
 Defualt: 500
 
 Set the specified duration in milliseconds of the effects.
+
 Code examples:
+
 Initialize the widget:
 ```
 $( ".selector" ).carousel({
@@ -79,12 +95,17 @@ var images = $( ".selector" ).carousel( "option", "timeShow" );
 $( ".selector" ).carousel( "option", "timeShow", 500 );
 ```
 
+__________________________________________________________________________________
+
 ###timeInterval
 Type: Number
+
 Defualt: 4000
 
 Set the specified duration in milliseconds of the interval.
+
 Code examples:
+
 Initialize the widget:
 ```
 $( ".selector" ).carousel({
@@ -100,12 +121,17 @@ var images = $( ".selector" ).carousel( "option", "timeInterval" );
 $( ".selector" ).carousel( "option", "timeInterval", 4000 );
 ```
 
+__________________________________________________________________________________
+
 ###state
 Type: String
+
 Defualt: "run"
 
 Set the state of the carousel. The value ca be "run" or "stop".
+
 Code examples:
+
 Initialize the widget:
 ```
 $( ".selector" ).carousel({
@@ -121,12 +147,17 @@ var images = $( ".selector" ).carousel( "option", "state" );
 $( ".selector" ).carousel( "option", "state", "run" );
 ```
 
+__________________________________________________________________________________
+
 ###width
 Type: Number
+
 Defualt: 300
 
 The width of the carousel, in pixels.
+
 Code examples:
+
 Initialize the widget:
 ```
 $( ".selector" ).carousel({
@@ -142,12 +173,17 @@ var images = $( ".selector" ).carousel( "option", "width" );
 $( ".selector" ).carousel( "option", "width", 300 );
 ```
 
+__________________________________________________________________________________
+
 ###height
 Type: Number
+
 Defualt: 300
 
 The height of the carousel, in pixels.
+
 Code examples:
+
 Initialize the widget:
 ```
 $( ".selector" ).carousel({
@@ -163,12 +199,17 @@ var images = $( ".selector" ).carousel( "option", "height" );
 $( ".selector" ).carousel( "option", "height", 300 );
 ```
 
+__________________________________________________________________________________
+
 ###arrows
 Type: Boolean
+
 Defualt: true
 
 Set the display of the arrows for move to the next or previous image.
+
 Code examples:
+
 Initialize the widget:
 ```
 $( ".selector" ).carousel({
@@ -184,12 +225,17 @@ var images = $( ".selector" ).carousel( "option", "arrows" );
 $( ".selector" ).carousel( "option", "arrows", true );
 ```
 
+__________________________________________________________________________________
+
 ###draggable
 Type: Boolean
+
 Defualt: false
 
 Set the carousel draggable.
+
 Code examples:
+
 Initialize the widget:
 ```
 $( ".selector" ).carousel({
@@ -205,12 +251,17 @@ var images = $( ".selector" ).carousel( "option", "draggable" );
 $( ".selector" ).carousel( "option", "draggable", false );
 ```
 
+__________________________________________________________________________________
+
 ###resizable
 Type: Boolean
+
 Defualt: false
 
 Set the carousel resizable.
+
 Code examples:
+
 Initialize the widget:
 ```
 $( ".selector" ).carousel({
@@ -225,3 +276,4 @@ var images = $( ".selector" ).carousel( "option", "resizable" );
 // Setter
 $( ".selector" ).carousel( "option", "resizable", false );
 ```
+__________________________________________________________________________________

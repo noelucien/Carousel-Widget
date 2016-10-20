@@ -1,0 +1,31 @@
+.ui_widget_frame_carousel{
+    overflow:hidden;
+    position:relative;
+    margin:10px;
+    background:white;
+    box-shadow:0px 0px 5px black;
+ }
+ .arrow_left{
+	 background-image:url('slide_arrow_left.png');
+	 left:5px;
+ }
+ .arrow_right{
+	 background-image:url('slide_arrow_right.png');
+	 right:5px;
+ }
+ .arrow{	 	 
+	 background-repeat:no-repeat;
+	 background-size:32px 32px;
+	 background-position:center center;
+	 background-color:rgb(250,250,250);
+	 border-radius:16px;
+	 width:32px;
+	 height:32px;
+	 position:absolute;
+	 z-index:100;
+	 opacity:0.5;
+	 cursor:pointer;
+ }
+  .arrow:hover{	 
+	 opacity:1;
+ }

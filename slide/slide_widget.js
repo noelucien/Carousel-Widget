@@ -143,12 +143,9 @@ $.widget( "custom.carousel", {
 		}
 		if(py>0){
 			py = Math.abs(py/2);		
-		}
-		px+="px";
-		py+="px";	
+		}	
 		slide.css({"position":"absolute","left":px,"top":py});
 		var posHarrow = frame_h / 2;
-		posHarrow += "px";
 		arrowRight.css({"top":posHarrow});
 		arrowLeft.css({"top":posHarrow});
 	},

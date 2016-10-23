@@ -48,7 +48,7 @@ ________________________________________________________________________________
 ###effects
 Type: String
 
-Defualt: "fade"
+Default: "fade"
 
 Set the effect used for the transiction of the images into the carousel. The value can be the name of a [jQuery UI effect](http://api.jqueryui.com/category/effects/).
 
@@ -74,7 +74,7 @@ ________________________________________________________________________________
 ###timeShow
 Type: Number
 
-Defualt: 500
+Default: 500
 
 Set the specified duration in milliseconds of the effects.
 
@@ -100,7 +100,7 @@ ________________________________________________________________________________
 ###timeInterval
 Type: Number
 
-Defualt: 4000
+Default: 4000
 
 Set the specified duration in milliseconds of the interval.
 
@@ -126,7 +126,7 @@ ________________________________________________________________________________
 ###state
 Type: String
 
-Defualt: "run"
+Default: "run"
 
 Set the state of the carousel. The value ca be "run" or "stop".
 
@@ -152,7 +152,7 @@ ________________________________________________________________________________
 ###width
 Type: Number
 
-Defualt: 300
+Default: 300
 
 The width of the carousel, in pixels.
 
@@ -178,7 +178,7 @@ ________________________________________________________________________________
 ###height
 Type: Number
 
-Defualt: 300
+Default: 300
 
 The height of the carousel, in pixels.
 
@@ -204,7 +204,7 @@ ________________________________________________________________________________
 ###arrows
 Type: Boolean
 
-Defualt: true
+Default: true
 
 Set the display of the arrows for move to the next or previous image.
 
@@ -230,7 +230,7 @@ ________________________________________________________________________________
 ###draggable
 Type: Boolean
 
-Defualt: false
+Default: false
 
 Set the carousel draggable.
 
@@ -256,7 +256,7 @@ ________________________________________________________________________________
 ###resizable
 Type: Boolean
 
-Defualt: false
+Default: false
 
 Set the carousel resizable.
 

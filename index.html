@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="jquery/jquery.min.js"></script>
+<script src="jquery/ui/jquery-ui.js"></script>
+<link rel="stylesheet" href="jquery/ui/jquery-ui.css">
+<script src="slide/slide_widget.js"></script>
+<link rel="stylesheet" href="slide/slide_widget.css">
+<title>Carousel Widget</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<script>
+$(document).ready(function(){     
+	var array = ['img/1.jpg', 'img/2.jpg', 'img/3.jpg', 'img/4.jpg', 'img/5.jpg', 'img/6.jpg' ];
+	$('#workspace').carousel({"images":array, "draggable":true, "resizable":true });
+	get_options();
+});
+
+function get_options(){
+	var width = $('#workspace').carousel( "option", "width" );
+	var height = $('#workspace').carousel( "option", "height" );
+	var effects = $('#workspace').carousel( "option", "effects" );
+	var timeShow = $('#workspace').carousel( "option", "timeShow" );
+	var timeInterval = $('#workspace').carousel( "option", "timeInterval" );
+	var arrows = $('#workspace').carousel( "option", "arrows" );
+	var draggable = $('#workspace').carousel( "option", "draggable" );
+	var resizable = $('#workspace').carousel( "option", "resizable" );
+	
+	$("input[name='w_value']").val(width);
+	$("input[name='h_value']").val(height);
+	$("input[name='time_value']").val(timeShow);
+	$("input[name='interval_value']").val(timeInterval);
+	$("select[name='effects']").val(effects);
+	if(arrows){
+		$("select[name='arrows']").val('yes');
+	}else{
+		$("select[name='arrows']").val('none');
+	}
+	if(draggable){
+		$("select[name='drag']").val('yes');
+	}else{
+		$("select[name='drag']").val('none');
+	}
+	if(resizable){
+		$("select[name='resize']").val('yes');
+	}else{
+		$("select[name='resize']").val('none');
+	}
+}
+
+function set_options(){
+	var width = $("input[name='w_value']").val();
+	var height = $("input[name='h_value']").val();
+	var timeShow = $("input[name='time_value']").val();
+	var timeInterval = $("input[name='interval_value']").val();
+	var effects = $("select[name='effects'] option:selected").val();
+	var arrows = $("select[name='arrows'] option:selected").val();
+	var draggable = $("select[name='drag'] option:selected").val();
+	var resizable = $("select[name='resize'] option:selected").val();
+
+	$('#workspace').carousel( "option", "width", width );
+	$('#workspace').carousel( "option", "height", height );	
+	$('#workspace').carousel( "option", "timeShow", timeShow );
+	$('#workspace').carousel( "option", "timeInterval", timeInterval );
+	$('#workspace').carousel( "option", "effects", effects );
+
+	if(arrows==="yes"){
+		$('#workspace').carousel( "option", "arrows", true );
+	}else{
+		$('#workspace').carousel( "option", "arrows", false );
+	}
+	if(draggable==="yes"){
+		$('#workspace').carousel( "option", "draggable", true );
+	}else{
+		$('#workspace').carousel( "option", "draggable", false );
+	}
+	if(resizable==="yes"){
+		$('#workspace').carousel( "option", "resizable", true );
+	}else{
+		$('#workspace').carousel( "option", "resizable", false );
+	}		
+}	
+
+function state(action){
+	if(action){
+		$('#workspace').carousel( "option", "state", "run" );
+	}else{
+		$('#workspace').carousel( "option", "state", "stop" );
+	}
+}
+</script>
+<style>
+#container{
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;	
+}
+#top_area{
+	position:relative;
+	width:100%;
+	height:50px;
+	box-shadow: 0px 4px 4px grey;
+}
+#main_area{
+	position:relative;	
+	width:100%;
+}
+#menu{
+	position:absolute;
+	top:10px;
+	left:0px;
+	width:10%;
+	min-width:100px;
+	box-shadow: 2px 0px 4px grey;
+}
+#workspace{
+	position:absolute;
+	top:0px;
+	left:10%;
+	width:90%;
+	height:100%;	
+}
+.title{
+	font-family:Tahoma, Geneva, sans-serif;
+	text-align:center;
+	font-size:200%;
+}
+ul{
+	list-style-type:none;
+	position: relative;
+	right: 35px;
+	width:100%;
+}
+input{
+	width:96%;
+}
+</style>
+</head>
+<body>
+<div id="container">
+	<div id="top_area">		
+		<div class="title">Carousel Widget</div>
+	</div>
+	<div id="main_area">
+		<div id="menu">	
+			<ul>
+				<li>Width<input type="number" name="w_value" value="" maxlength="5" /></li>
+				<li>Height<input type="number" name="h_value" value="" /></li>				
+				<li>Time Show<input type="number" name="time_value" value="" /></li>
+				<li>Time Interval<input type="number" name="interval_value" value="" /></li>
+				<li><hr></li>
+				<li>Effects
+					<select name="effects">
+					  <option value="fade">Fade</option>
+					  <option value="fold">Fold</option>
+					  <option value="puff">Puff</option>
+					  <option value="shake">Shake</option>
+					  <option value="slide">Slide</option>
+					</select> 
+				</li>
+				<li><hr></li>
+				<li>Arrows
+					<select name="arrows">
+					  <option value='yes'>Show</option>
+					  <option value='none'>Hide</option>
+					</select> 
+				</li>
+				<li>Draggable
+					<select name="drag">
+					  <option value='yes'>Yes</option>
+					  <option value='none'>None</option>
+					</select> 
+				</li>
+				<li>Resizable
+					<select name="resize">
+					  <option value='yes'>Yes</option>
+					  <option value='none'>None</option>
+					</select> 
+				</li>
+				<li><hr></li>
+				<li><button onclick="set_options()">SET options</button><button onclick="get_options()">GET options</button></li>
+				<li><hr></li>
+				<li><button onclick="state(true)">RUN</button><button onclick="state(false)">STOP</button></li>
+			</ul>
+		</div>
+		<div id="workspace"></div>
+	</div>
+</div>
+</body>
+</html>
+

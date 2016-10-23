@@ -25,17 +25,15 @@ $.widget( "custom.carousel", {
 		frame = $('<div></div>').appendTo(this.element).addClass( "ui_widget_frame_carousel" );	
 		slide = $('<div></div>').appendTo(frame).addClass( "ui_widget_slide_carousel" );		
 		arrowRight = $('<div></div>').appendTo(frame).addClass( "arrow arrow_right" );
-		arrowLeft = $('<div></div>').appendTo(frame).addClass( "arrow arrow_left" );		
-		
-		frame.width(this.options.width).height(this.options.height);
-		
+		arrowLeft = $('<div></div>').appendTo(frame).addClass( "arrow arrow_left" );				
+		frame.width(this.options.width).height(this.options.height);		
 		arrowRight.click(function(){ that._RightArrowAction(); });
 		arrowLeft.click(function(){ that._LeftArrowAction(); });
 		this._slideshow();
     },	
 	_destroy: function(){
-		clearInterval(interval_event);
-		interval_event = null;
+		clearInterval(this.options.interval_event);
+		this.options.interval_event = null;
 		frame.remove();
 	},
 	_setOption: function( key, value ) {
@@ -83,18 +81,22 @@ $.widget( "custom.carousel", {
 			frame.resizable({ disabled: true });
 		}
 		if( this.options.state==='stop' ){
-			clearInterval(interval_event);
-			interval_event =  null;
+			clearInterval(this.options.interval_event);
+			this.options.interval_event =  null;
 		}	
 		if( this.options.state==='run' ){
-			if(this.options.images.length>0){				
+			if(this.options.images.length>0){		
+				if(this.options.interval_event!=null){
+					clearInterval(this.options.interval_event);
+					this.options.interval_event =  null;
+				}
 				var that = this;
 				index_images = 0;
 				slide.hide();			
 				this._load_image(this.options.images[index_images]).then(function(result){	
 					slide.show(that.options.effects,  that.options.timeShow);
 				});								
-				interval_event = setInterval(function(){
+				this.options.interval_event = setInterval(function(){
 					slide.hide(that.options.effects,  that.options.timeShow, function(){
 						index_images++;
 						if(index_images==that.options.images.length){index_images=0;}	   
@@ -124,27 +126,20 @@ $.widget( "custom.carousel", {
 	_resize_image: function (w,h){	
 		var frame_w = frame.width();
 		var frame_h = frame.height();
-		if( w>=h ){
-			var calcolo = w;
-			var costante = frame_w;
+		if(w<h){			
+			var w = w * (frame_h/h);
+			var h = frame_h;			
+			var px = (frame_w - w)/2;
+			var py = 0;
 		}else{
-			var calcolo = h;
-			var costante = frame_h;
-		}	
-		var risultato = costante * (100 / calcolo);
-		w = (w/100)*risultato;
-		h = (h/100)*risultato;	
+			var h = h * (frame_w/w);
+			var w = frame_w;			
+			var py = (frame_h - h)/2;
+			var px = 0;
+		}
 		slide.find("img").width(w).height(h);
 		slide.width(w).height(h);
-		var px = frame_w - w;
-		var py = frame_h - h;	
-		if(px>0){
-			px = Math.abs(px/2);		
-		}
-		if(py>0){
-			py = Math.abs(py/2);		
-		}	
-		slide.css({"position":"absolute","left":px,"top":py});
+		slide.find("img").css({"position":"absolute","left":px,"top":py});		
 		var posHarrow = frame_h / 2;
 		arrowRight.css({"top":posHarrow});
 		arrowLeft.css({"top":posHarrow});
